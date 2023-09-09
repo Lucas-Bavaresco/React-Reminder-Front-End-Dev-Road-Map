@@ -30,7 +30,7 @@ export const Container = styled.form`
       width: 100%;
       border: 1px solid #7c7c7c;
       border-radius: 0.5rem;
-      padding: 0%.4rem;
+      padding: 0.4rem;
     }
 
     > textarea {
