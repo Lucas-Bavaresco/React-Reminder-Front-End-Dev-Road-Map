@@ -3,10 +3,16 @@ import styled from "styled-components";
 export const Container = styled.section`
   display: flex;
   width: 100%;
-  height: 25rem;
+  height: 20rem;
+  border: 1px solid var(--white);
+  
 
   > img {
     width: 100%;
-    object-fit: fill;
+    cursor: pointer;
+  }
+
+  .img-hover:hover {
+    border: 5px solid var(--white);
   }
 `;

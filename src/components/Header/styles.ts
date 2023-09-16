@@ -10,6 +10,11 @@ export const Container = styled.header`
   background-color: var(--purple-900);
 
   > img {
-    height: 2.5rem;
+  height: 3.0rem;
+  margin: 0 auto; /* Adicione esta linha para centralizar horizontalmente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--purple-900);
   }
 `;

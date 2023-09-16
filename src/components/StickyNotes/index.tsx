@@ -9,14 +9,18 @@ export function StickyNotes() {
   return (
     <Container>
       <div className="reminderTitle">
-        <h1>Lembretes: {notes.length} </h1>
+        <h1>
+          Schedule: <span className="notesCount">{notes.length}</span>
+        </h1>
       </div>
       <Grid>
         <For each={notes} as="div">
           {(notes: any) => (
             <div key={notes.title}>
-              <h2>{notes.title}</h2>
-              <p>{notes.description}</p>
+              <p id="date">Date: {notes.date}</p>
+              <p id="time">Time: {notes.time}</p>
+              <h2 id="title">{notes.title}</h2>
+              <p id="description">{notes.description}</p>
             </div>
           )}
         </For>

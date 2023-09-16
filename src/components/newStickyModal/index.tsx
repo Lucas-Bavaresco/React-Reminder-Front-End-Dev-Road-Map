@@ -15,10 +15,14 @@ export function NewStickyModal({ isOpen, onRequestClose }: ModalProps) {
   const [stickyName, setStickyName] = useState("");
   const [stickyDescription, setStickyDescription] = useState("");
   const { notes, setNotes } = useContext<any>(NotesContext);
+  const [stickyDate, setStickyDate] = useState(""); // Estado para a data
+  const [stickyTime, setStickyTime] = useState(""); // Estado para a hora
 
   const formData = {
     title: stickyName,
     description: stickyDescription,
+    date: stickyDate,
+    time: stickyTime,
   };
 
   function handleFormSubmit(event: any) {
@@ -36,24 +40,42 @@ export function NewStickyModal({ isOpen, onRequestClose }: ModalProps) {
       style={{ overlay: { background: "rgba(0,0,0,0.409" } }}
     >
       <Container onSubmit={handleFormSubmit}>
-        <h1>Criar Lembrete</h1>
+        <h1>Add Schedule</h1>
         <div>
           <input
             type="text"
-            placeholder="Nome"
+            placeholder="Title"
             onChange={(event) => setStickyName(event.target.value)}
+            required
           />
+
           <textarea
-            placeholder="Descrição"
+            placeholder="Description"
+            required
             onChange={(event) => {
               setStickyDescription(event.target.value);
             }}
           />
+          <div className="dateAndTime">
+            <div className="inputWrapper" id="date">
+              <input
+                type="date"
+                value={stickyDate}
+                onChange={(event) => setStickyDate(event.target.value)}
+                required
+              />
+            </div>
+            <div className="inputWrapper" id="time">
+              <input
+                type="time"
+                value={stickyTime}
+                onChange={(event) => setStickyTime(event.target.value)}
+                required
+              />
+            </div>
+          </div>
         </div>
-        <Button
-          title="Adicionar Lembrete"
-          onClick={() => setNotes([...notes, formData])}
-        />
+        <Button title="" onClick={() => setNotes([...notes, formData])} />
       </Container>
     </Modal>
   );
